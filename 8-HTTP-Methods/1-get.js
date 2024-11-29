@@ -4,7 +4,7 @@ const api_key = generateKey();
 const url = "https://api.boot.dev/v1/courses_rest_api/learn-http/users";
 const users = await getUsers(url, api_key);
 
-const logUsers = (users) => {
+export const logUsers = (users) => {
     for (const user of users) {
         console.log(
             `Username: ${user.user.name}, Role: ${user.role}, Experience: ${user.experience}, Remote: ${user.remote}`
@@ -12,9 +12,9 @@ const logUsers = (users) => {
     }
 };
 
-logUsers(users);
+// logUsers(users);
 
-async function getUsers(url, apiKey) {
+export async function getUsers(url, apiKey) {
     const response = await fetch(url, {
         method: "GET",
         mode: "cors",
